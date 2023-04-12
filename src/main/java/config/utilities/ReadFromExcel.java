@@ -12,7 +12,7 @@ public class ReadFromExcel {
 
 
     public static void main(String[] args) {
-        String filePath = "../LearnJava_QE_SUMMER2022/DataTest/TestData.xlsx";
+        String filePath = "../TDD-DEMO_WebAutomation-Framework_QE_SUMMER2022/DataTest/TestData1.xlsx";;
 
         Workbook workbook;
         FileInputStream inputStream;

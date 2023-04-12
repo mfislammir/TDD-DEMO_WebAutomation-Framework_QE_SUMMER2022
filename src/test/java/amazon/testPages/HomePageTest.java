@@ -1,7 +1,11 @@
 package amazon.testPages;
 
+import amazon.pages.DataGettingFromExcel;
+import amazon.pages.DataProviderFromExce;
 import amazon.pages.RegistrationPage;
 import config.common.WebTestBase;
+import config.utilities.WriteToExcel;
+import config.utilities.WriteToExcelUsingForLoop;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -9,18 +13,23 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import amazon.pages.HomePage;
 
+import java.io.IOException;
+
 import static config.common.GlobalReUsableMethods.clickOnWebElement;
 
 public class HomePageTest extends WebTestBase {
 
     public HomePage homePage;
+    public DataGettingFromExcel dataGettingFromExcel;
     public RegistrationPage registrationPage;
-
+    public DataProviderFromExce dataProviderFromExce;
    // @BeforeMethod
     public void getInItElements() {
         PageFactory.initElements(driver, HomePage.class);
         homePage = new HomePage(driver);
         registrationPage = new RegistrationPage(driver);
+       dataGettingFromExcel=new DataGettingFromExcel(driver);
+       //dataProviderFromExce=new DataProviderFromExce(driver);
     }
 
    // @Test
@@ -35,7 +44,7 @@ public class HomePageTest extends WebTestBase {
         homePage.searchCustomItem();
         waitFor(3);
     }
-    @Test
+   // @Test
     public void verifyMouseHoverOver() throws InterruptedException {
         getInItElements();
         homePage.selectSignInOption();
@@ -80,6 +89,21 @@ public class HomePageTest extends WebTestBase {
         getInItElements();
         homePage.getIntoSalePage();
     }
+@Test
+    public void verifyGettingTestDataFromExcel() throws InterruptedException, IOException {
+        getInItElements();
+        dataGettingFromExcel.testDataFromExcel();
+    }
+
+//    @Test
+//    public void verifyGettingTestDataFromArrayList() throws InterruptedException, IOException {
+//        getInItElements();
+//        dataProviderFromExce.signInTest();
+//    }
+
+
+
+
 
 
 
